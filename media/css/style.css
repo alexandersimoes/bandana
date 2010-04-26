@@ -1,0 +1,125 @@
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0;}
+table{border-collapse:collapse;border-spacing:0;}
+fieldset,img{border:0;}
+address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}
+li{list-style:none;}
+caption,th{text-align:left;}
+h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}
+q:before,q:after{content:'';}
+abbr,acronym {border:0;font-variant:normal;}
+sup {vertical-align:text-top;}
+sub {vertical-align:text-bottom;}
+input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit;}
+input,textarea,select{*font-size:100%;}
+legend{color:#000;}
+
+strong { font-weight: bold; }
+em { font-style: italic; }
+.clear { clear: both; }
+
+body { font: 12px helvetica,sans-serif; }
+
+div.center {
+	margin: auto;
+	width: 950px;
+}
+div#top {
+	background: url('the_hard_clean_bandana.png');
+	padding: 5px;
+}
+div#top h1 a{
+	color: black;
+	font-size: 150%;
+	font-weight: bold;
+}
+div#header h1{
+	font-size: 14px;
+	font-weight: bold;
+}
+div#content{
+	overflow: hidden;
+	margin: 40px auto;
+}
+div#content h1{
+	font-size:48px;
+	font-weight:bold;
+	margin: 0 0 20px 0;
+}
+ul.module_list li{
+	/*background: #DEDEDE;*/
+	float: left;
+	height:300px;
+	margin: 0 16px 16px 0;
+	width:300px;
+	overflow: hidden;
+}
+ul.module_list li.module_t {
+	overflow: auto;
+}
+ul.module_list li.module_t h2{
+	font-size: 120%;
+	font-weight: bold;
+	margin: 0 0 10px 0;
+}
+ul.module_list li.module_i img{
+	height: 300px;
+	width: 300px;
+}
+
+ul.module_list li.module_j .simoes_jukebox{
+	background: #ddd;
+	width: 300px;
+}
+ul.module_list li.module_j .simoes_jukebox a{
+	background: url('http://lasttreestanding.com/bandana/simoes_jukebox_controls.png');
+	background-repeat: no-repeat;
+	display: inline-block;
+	height: 33px;
+	margin: 0 14px;
+	overflow: hidden;
+	width: 33px;
+}
+ul.module_list li.module_j .simoes_jukebox a:hover{
+	background-color: #999;
+}
+ul.module_list li.module_j .simoes_jukebox a.previous{ background-position: -60px top; }
+ul.module_list li.module_j .simoes_jukebox a.play{ background-position: top left; }
+ul.module_list li.module_j .simoes_jukebox a.pause{ background-position: -30px top; }
+ul.module_list li.module_j .simoes_jukebox a.next{ background-position: -90px top; }
+ul.module_list li.module_j .simoes_jukebox .load_progress{
+	background: #fefefe;
+	height: 5px;
+	width: 100%;
+}
+ul.module_list li.module_j .simoes_jukebox .time_progress{
+	background: #bababa;
+	bottom: 5px;
+	height: 5px;
+	position: relative;
+	width: 100%;
+}
+
+ul.module_list li.module_j ul.song_list{
+	border: solid 1px #999;
+	height: 252px;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+ul.module_list li.module_j ul.song_list li{
+	float: none;
+	font-size: 200%;
+	height: auto;
+	margin: 0;
+}
+ul.module_list li.module_j ul.song_list li a{
+	color: #000;
+	display: block;
+	padding: 10px;
+	text-decoration: none;
+}
+ul.module_list li.module_j ul.song_list li a:hover{
+	background: #ededed;
+}
+ul.module_list li.module_j ul.song_list li a.active_song{
+	background: #ededed;
+}

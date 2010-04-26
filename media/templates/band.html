@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>Bandana {{band.name}}</title>
+    <link href="/media/css/style.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+    <script type="text/javascript" src="timer.jquery.js"></script>
+    <script type="text/javascript" src="/media/js/simoes_jukebox.js"></script>
+</head>
+
+<body class="band">
+    <div id="top" style="background: url('{{band.bandana}}');">
+        <h1><a href="/">BANDANA</a></h1>
+    </div>
+    <div class="center" id="content">
+        <h1>{{ band.name }}</h1>
+        
+        <ul class="module_list">
+            {% for module in all_modules_list %}
+            <li class="module_{{ module.type }}">
+                {% ifequal module.type "t" %}
+                    {% for item in module.items %}
+                        <h2>{{ item.title }}</h2>
+                        <p>{{ item.text }}</p>
+                    {% endfor %}
+                {% endifequal %}
+                
+                {% ifequal module.type "c" %}
+                    {% for item in module.items %}
+                        <h2>{{ item.date|date:"F" }}</h2>
+                        <hr />
+                        <br />
+                    {% endfor %}
+                {% endifequal %}
+                
+                {% ifequal module.type "i" %}
+                    {% for item in module.items %}
+                        <img src="{{ item.url }}" alt="{{ item.title }}" />
+                    {% endfor %}
+                {% endifequal %}
+                
+                {% ifequal module.type "j" %}
+                    <div class="simoes_jukebox">
+                        <a class="previous" href="#" title="previous"></a>
+                        <a class="play" href="#" title="play"></a>
+                        <a class="pause" href="#" title="pause"></a>
+                        <a class="next" href="#" title="next"></a>
+                        <audio class="audio" autobuffer>
+                                <p>Oops, looks like your browser doesn't support HTML 5 audio.</p>      
+                        </audio>
+                        <div class="load_progress"></div>
+                        <div class="time_progress"></div>
+                    </div>
+                    <ul class="song_list">
+                    {% for item in module.items %}
+                        <li><a href="{{ item.url }}">{{ item.text }}</a></li>
+                    {% endfor %}
+                    </ul>
+                {% endifequal %}
+                
+                {% ifequal module.type "v" %}
+                    {% for item in module.items %}
+                        {% ifequal item.meta "vimeo" %}
+                            <object width="300" height="300"><param name="allowfullscreen" value="true" /><param name="allowscriptaccess" value="always" /><param name="movie" value="http://vimeo.com/moogaloop.swf?clip_id={{ item.text }}&amp;server=vimeo.com&amp;show_title=0&amp;show_byline=0&amp;show_portrait=0&amp;color=&amp;fullscreen=1" /><embed src="http://vimeo.com/moogaloop.swf?clip_id={{ item.text }}&amp;server=vimeo.com&amp;show_title=0&amp;show_byline=0&amp;show_portrait=0&amp;color=&amp;fullscreen=1" type="application/x-shockwave-flash" allowfullscreen="true" allowscriptaccess="always" width="300" height="300"></embed></object>
+                        {% else %}
+                            <object width="300" height="300"><param name="movie" value="http://www.youtube.com/v/{{ item.text }}&hl=en_US&fs=1&rel=0"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/{{ item.text }}&hl=en_US&fs=1&rel=0" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="300" height="300"></embed></object>
+                        {% endifequal %}
+                    {% endfor %}
+                {% endifequal %}
+            </li>
+            {% endfor %}
+        </ul>
+</body>
+</html>
