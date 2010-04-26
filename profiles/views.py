@@ -3,7 +3,8 @@ from bandana.profiles.models import Band, Module, Item
 from django.shortcuts import render_to_response
 
 def home(request):
-    return HttpResponseRedirect("/bands/")
+    # return HttpResponseRedirect("/bands/")
+    return render_to_response('home.html')
 
 def index(request):
     all_bands_list = Band.objects.all().order_by('-since')[:5]
