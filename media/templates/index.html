@@ -2,13 +2,19 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-    <title>Bandan</title>
+    <title>Bandana</title>
+    <link href="/media/css/style.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-    <ul>
-        {% for band in all_bands_list %}
-        <li><h1><a href="/bands/{{band.slug}}/">{{band.name}}</a></h1></li>
-        {% endfor %}
-    </ul>
+    <div class="center" id="content">
+        <ul class="band-list">
+            {% for band in all_bands_list %}
+            <li><h1><a href="/bands/{{band.slug}}/" style="background:url('{{band.bandana}}');">{{band.name}}</a></h1></li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="footer">
+        <p>Made by musicians for musicians.</p>
+    </div>
 </body>
 </html>

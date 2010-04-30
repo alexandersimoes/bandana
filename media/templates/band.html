@@ -2,7 +2,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-    <title>Bandana {{band.name}}</title>
+    <title>Bandana : {{band.name}}</title>
     <link href="/media/css/style.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
     <script type="text/javascript" src="timer.jquery.js"></script>
@@ -26,12 +26,23 @@
                     {% endfor %}
                 {% endifequal %}
                 
-                {% ifequal module.type "c" %}
+                {% ifequal module.type "c" %}                    
                     {% for item in module.items %}
-                        <h2>{{ item.date|date:"F" }}</h2>
+                        {% ifchanged item.date|date:"F" %}
+                        <h2 style="padding-top: 1.8em;">{{ item.date|date:"F" }}</h2>
                         <hr />
-                        <br />
+                        {% endifchanged %}
+                        <table>
+                            <tbody>                    
+                                <tr style="height: 1.8em;">
+                                    <td style="width: 35px;"><strong>{{ item.date|date:"jS" }}</strong></td>
+                                    <td style="width: 60px;"><em>{{ item.date|date:"g:i a" }}</em></td>
+                                    <td>{{ item.text }} <span style="font-style: italic;">{{ item.meta }}</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
                     {% endfor %}
+
                 {% endifequal %}
                 
                 {% ifequal module.type "i" %}
@@ -71,5 +82,9 @@
             </li>
             {% endfor %}
         </ul>
+    </div>
+    <div class="footer">
+        <p>Made by musicians for musicians.</p>
+    </div>
 </body>
 </html>
